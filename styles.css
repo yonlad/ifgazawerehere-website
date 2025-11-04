@@ -70,12 +70,18 @@ body {
     padding: 1rem;
 }
 
-/* Video Frame Styling - 9:16 aspect ratio (portrait) */
+/* Video Frame Styling - square aspect ratio */
 .video-frame {
     position: relative;
     transition: transform 0.3s ease;
     width: 100%;
     margin: 0 auto;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #000;
 }
 
 .video-frame:hover {
@@ -84,10 +90,11 @@ body {
 
 .video-frame video {
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-width: none;
     display: block;
     background-color: #000;
-    max-height: calc(100vh - 220px);
+    object-fit: cover;
 }
 
 /* Content Pages */
@@ -181,11 +188,7 @@ body {
 
     .video-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .video-frame {
-        max-height: 70vh;
+        gap: 2.5rem;
     }
 
     .gallery-container {
